@@ -1,0 +1,25 @@
+n=int(input())
+m1,p1=map(int,input().split())
+m2,p2=map(int,input().split())
+if p1<p2:
+    if n%m1==0:
+        res=(n//m1)*p1
+        print(res)
+    else:
+        for i in range(n,0,-1):
+            if i%m1==0:
+                if (n-i)%m2==0:
+                    res=((i//m1)*p1)+(((n-i)//m2)*p2)
+                    print(res)
+                    break
+else:
+    if n%m2==0:
+        res=(n//m2)*p2
+        print(res)
+    else:
+        for j in range(n,0,-1):
+            if j%m2==0:
+                if (n-j)%m1==0:
+                    res=((j//m2)*p2)+(((n-j)//m1)*p1)
+                    print(res)
+                    break
