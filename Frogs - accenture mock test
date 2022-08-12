@@ -1,0 +1,16 @@
+n,k,p=map(int,input().split())
+l=list(map(int,input().split()))
+s=sorted(l)
+fmap={s[0]:0}
+m=0
+for i in range(n-1):
+    if s[i+1]-s[i]>k:
+        m+=1
+    fmap[s[i+1]]=m
+for i in range(p):
+    a,b=map(int,input().split())
+    a,b=l[a-1],l[b-1]
+    if fmap[a]==fmap[b]:
+        print("Yes")
+    else:
+        print("No")
