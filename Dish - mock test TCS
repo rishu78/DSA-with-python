@@ -1,0 +1,20 @@
+import sys
+from collections import Counter,deque
+from math import gcd,sqrt,ceil
+def li(): return [int(i) for i in sys.stdin.readline().split()]; 
+def si(): return sys.stdin.readline().split(); 
+def ii(): return int(sys.stdin.readline()); 
+def ip(): return input(); 
+def sub(x,y):
+    i=0; 
+    for c in x:
+        while(i<len(y) and y[i]!=c): i+=1; 
+        if(i==len(y)): return 0
+        i+=1
+    return 1
+
+for tastcas in range(int(input())):
+    a=ip(); n=len(a); m=n//2; mm=(n+1)//2; 
+    if(n<2):print("NO")
+    elif((sub(a[:m],a[m:]) or sub(a[mm:],a[:mm]))): print("YES")
+    else: print("NO")
