@@ -1,0 +1,21 @@
+for _ in range(int(input())):
+    n,u,d=map(int,input().split())
+    h=list(map(int,input().split()))
+    count=0
+    for i in range(len(h)-1):
+        if h[i]==h[i+1]:
+            count+=1
+        elif h[i]<h[i+1]:
+            if h[i+1]-h[i]<=u:
+                count+=1
+            else:
+                break
+        elif h[i]>h[i+1]:
+            if h[i]-h[i+1]<=d:
+                count+=1
+            elif h[i]-h[i+1]>d:
+                count+=1
+                break
+            else:
+                break
+    print(count+1)
