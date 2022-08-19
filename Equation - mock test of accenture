@@ -1,0 +1,19 @@
+for _ in range(int(input())):
+    count=0
+    x=int(input())
+    for i in range(x//2):
+        for j in range(x//2):
+            if (2*i)+(2*j)+(i*j)==x:
+                count=0
+                break
+            elif (2*i)+(2*j)+(i*j)<x:
+                count+=1
+            elif (2*i)+(2*j)+(i*j)>x:
+                count+=1
+                break
+        if count==0:
+            break
+    if count==0:
+        print("YES")
+    else:
+        print("NO")
