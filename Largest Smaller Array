@@ -1,0 +1,17 @@
+def LargestSmallSum(arr):
+    l=[]
+    ll=[]
+    if len(arr)==0 and len(arr)<=3:
+        res=0
+    else:
+        for i in range(len(arr)):
+            if i%2==0:
+                l.append(arr[i])
+            else:
+                ll.append(arr[i])
+        l.sort() 
+        ll.sort()
+        res=l[len(l)-2]+ll[len(ll)-2]
+    return res
+arr=list(map(int,input().split()))
+print(LargestSmallSum(arr))
