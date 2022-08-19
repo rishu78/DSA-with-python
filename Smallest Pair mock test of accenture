@@ -1,0 +1,10 @@
+def ProductSmallestPair(sm,arr):
+    arr.sort()
+    if len(arr)==0 and len(arr)<2:
+        res=-1
+    else:
+        res=arr[0]*arr[1]
+    return res
+sm=int(input())
+arr=list(map(int,input().split()))
+print(ProductSmallestPair(sm,arr))
