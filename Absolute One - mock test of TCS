@@ -1,0 +1,10 @@
+def Count(arr,num,diff):
+    count=0
+    for i in arr:
+        if abs(num-i)<=diff:
+            count+=1
+    return count
+arr=list(map(int,input().split()))
+num=int(input())
+diff=int(input())
+print(Count(arr,num,diff))
