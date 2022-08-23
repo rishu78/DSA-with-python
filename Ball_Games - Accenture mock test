@@ -1,0 +1,14 @@
+l=[]
+ll=[]
+for _ in range(int(input())):
+    a,b=map(int,input().split())
+    if a>b:
+        l.append(a-b)
+        ll.append(1)
+    elif b>a:
+        l.append(b-a)
+        ll.append(2)
+for i in range(len(l)):
+    if max(l)==l[i]:
+        print(ll[i],end=" ")
+print(max(l))
