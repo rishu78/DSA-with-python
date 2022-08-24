@@ -1,0 +1,12 @@
+def ProductSmallestPair(sum1,arr):
+    arr.sort()
+    if len(arr)==0 or len(arr)<2:
+        return -1
+    elif arr[0]+arr[1]>sum1:
+        return 0
+    else:
+        if arr[0]+arr[1]<=sum1:
+            return arr[0]*arr[1]
+sum1=int(input())
+arr=list(map(int,input().split()))
+print(ProductSmallestPair(sum1,arr))
