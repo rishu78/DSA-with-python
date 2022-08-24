@@ -1,0 +1,17 @@
+s=input() 
+l=list(s)
+k=[]
+for i in l:
+    if i=='A' or i=='B' or i=='C':
+        k.append(i)
+res=int(l[0])
+for i in range(0,len(l)-1,2):
+    w=int(l[i+2])
+    for j in k:
+        if j=='A':
+            res=res&w
+        elif j=='B':
+            res=res|w
+        elif j=='C':
+            res=res^w
+print(res)
