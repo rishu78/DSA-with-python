@@ -1,0 +1,12 @@
+def MaxInArray(arr,lgth):
+    l=[]
+    for i in arr:
+        l.append(i)
+    arr.sort()
+    print(arr[len(arr)-1])
+    for j in range(len(arr)):
+        if arr[len(arr)-1]==l[j]:
+            return j
+arr=list(map(int,input().split()))
+lgth=len(arr)
+print(MaxInArray(arr,lgth))
