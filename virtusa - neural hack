@@ -1,0 +1,49 @@
+n=int(input())
+l=list(map(int,input().split()))
+a=int(input())
+count=1
+res=[]
+y=[]
+l.sort()
+for i in range(n-1):
+    if l[i]==l[i+1]:
+        count+=1
+    else:
+        res.append(count)
+        y.append(l[i])
+        count=1
+#print(l)
+#print(res,y)
+rs=[]
+for i in range(len(res)):
+    if a==res[i]:
+        rs.append(y[i])
+print(rs[0]) 
+
+n,k=map(int,input().split())
+rs=""
+for i in range(k):
+    rs=rs+str(n)
+res=int(rs)
+sum=0
+while(res>10):
+    while(res>0):
+        j=res%10
+        sum=sum+j 
+        res=res//10
+    res=sum
+    sum=0
+print(res)
+
+def count(n):
+    table=[0 for i in range(n+1)]
+    table[0]=1
+    for i range(3,n+1):
+        table[i]+=table[i-3]
+    for i range(5,n+1):
+        table[i]+=table[i-5]
+    for i range(10,n+1):
+        table[i]+=table[i-10]
+    return table[n]
+n=int(input())
+print(count(n))
