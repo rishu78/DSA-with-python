@@ -1,0 +1,57 @@
+from typing import List
+class Node:
+    value: int
+    children: 'List[Node]'
+    def __init__(self, value: int):
+        self.value = value
+        self.children = []
+    def __repr__(self):
+        return f'({self.value}: {[n.value for n in self.children]})'
+def bfs(tree: Node, n: int) -> List[List[Node]]:
+    already_considered = [False for i in range(n+1)]
+    layers = [[tree]]
+    layer_idx = 0
+    while len(layers[layer_idx]) > 0:
+        layers.append([])
+        for node in layers[layer_idx]:
+            already_considered[node.value] = True
+            layers[layer_idx+1].extend([c for c in node.children if not already_considered[c.value]])
+        layer_idx += 1
+    layers.pop()
+    return layers
+def number_of_turns(tree: Node, n: int) -> int:
+    layers = bfs(tree, n)
+    turns = 0
+    top_index = 0
+    bottom_index = len(layers) - 1
+    top_turn = True
+    
+    while top_index <= bottom_index:
+        if top_turn:
+            top_index += 1
+        else:
+            layers[bottom_index].pop()
+            if len(layers[bottom_index]) == 0:
+                bottom_index -= 1
+        turns += 1
+        top_turn = not top_turn
+        
+    return turns
+def main():
+    tests = int(input())
+    for _ in range(tests):
+        n = int(input())
+        if n > 0:
+            nodes = [Node(i) for i in range(n+1)]
+            for _ in range(n-1):
+                edge = [int(node) for node in input().split()]
+                nodes[edge[0]].children.append(nodes[edge[1]])
+                nodes[edge[1]].children.append(nodes[edge[0]])
+            
+            turns = number_of_turns(nodes[1], n)
+            print(turns)
+        else:
+            print(0)
+if __name__ == '__main__':
+    main()
+
