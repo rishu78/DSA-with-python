@@ -1,0 +1,9 @@
+for _ in range(int(input())):
+    n,q=map(int,input().split())
+    s=input() 
+    for i in range(q):
+        l,r=map(int,input().split()) 
+        if r-l>=3:
+            print("YES")
+        else:
+            print("NO")
